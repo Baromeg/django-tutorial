@@ -1,0 +1,21 @@
+{% extends 'base.html'%} {% block content%}
+<h1>About page</h1>
+{{request.user}} {{request.user.is_authenticated}}
+<p>This is a template</p>
+
+<p>{{my_text}}</p>
+<p>{{my_number}}</p>
+<p>{{my_list}}</p>
+
+<ul>
+  {% for my_sub_item in my_list %} {%if my_sub_item == 32 %}
+  <li>{{forloop.counter}} - {{my_sub_item | add:22}}</li>
+  {%elif my_sub_item == 3212 %}
+  <li>This is not the network</li>
+
+  {%else%}
+  <li>{{forloop.counter}} - {{my_sub_item}}</li>
+  {%endif%} {%endfor%}
+</ul>
+
+{%endblock%}

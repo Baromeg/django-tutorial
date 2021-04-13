@@ -9,4 +9,4 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10000, decimal_places=2)
     # blank=False === to required - # null=False === is required in the database
     summary = models.TextField(blank=False, null=False)
-    featured = models.BooleanField()  # null=True, default=True
+    featured = models.BooleanField(default=False)  # null=True, default=True

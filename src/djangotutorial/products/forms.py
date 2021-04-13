@@ -5,7 +5,7 @@ from .models import Product
 
 class ProductForm(forms.ModelForm):
     title = forms.CharField(label='', widget=forms.TextInput(
-        attrs={'placeholder': 'Your title'}))
+        attrs={'placeholder': 'Your title news', }))
     # email = forms.EmailField()
     description = forms.CharField(required=False, widget=forms.Textarea(attrs={
         'class': 'new-class-name two',
@@ -43,7 +43,7 @@ class ProductForm(forms.ModelForm):
 
 class RawProductForm(forms.Form):
     title = forms.CharField(label='', widget=forms.TextInput(
-        attrs={'placeholder': 'Your title'}))
+        attrs={'placeholder': 'Your title must contain news'}))
     description = forms.CharField(required=False, widget=forms.Textarea(attrs={
         'class': 'new-class-name two',
         'id': 'my-id',

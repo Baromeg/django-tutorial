@@ -10,3 +10,6 @@ class Product(models.Model):
     # blank=False === to required - # null=False === is required in the database
     summary = models.TextField(blank=False, null=False)
     featured = models.BooleanField(default=False)  # null=True, default=True
+    def get_absolute_url(self):
+        return f'/products/{self.id}'
+    

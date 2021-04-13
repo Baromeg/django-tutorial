@@ -32,6 +32,23 @@ from .models import Product
 #     context = {}
 #     return render(request, 'products/product_create.html', context)
 
+def render_initial_data(request):
+    initial_data = {
+        'title': 'This is my awesome title'
+    }
+    obj = Product.objects.get(id=2)
+    form = ProductForm(request.POST or None,
+                       #  initial=initial_data,
+                       instance=obj)
+    if form.is_valid():
+        form.save()
+        form = ProductForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'products/product_create.html', context)
+
+
 def product_create_view(request):
     form = ProductForm(request.POST or None)
     if form.is_valid():
